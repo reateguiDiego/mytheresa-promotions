@@ -32,6 +32,12 @@ Application will be available at:
 composer test
 ```
 
+## Stop the application
+
+```bash
+composer stop
+```
+
 ## Endpoints
 
 ### `GET /products`
