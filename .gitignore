@@ -9,7 +9,6 @@
 /vendor/
 /var/cache/
 /var/log/
-/.env
 /.idea/
 /node_modules/
 /public/bundles/
