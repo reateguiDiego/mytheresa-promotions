@@ -78,3 +78,32 @@ src/
   Controller/      # HTTP endpoints
 var/data/          # Product dataset
 ```
+
+## Design Decisions
+
+- **Domain / Application / Infrastructure separation**:  
+  Chosen to keep business logic isolated from framework and transport (Clean Architecture inspiration).
+
+- **Products stored in JSON**:  
+  Enough for the coding challenge. Could be swapped for a database by changing only the `ProductDataSourceInterface` implementation.
+
+- **DTO with price in cents (int)**:  
+  Avoids floating point rounding errors and matches the requirement (`100€ = 10000`).
+
+- **Filtering before discounts**:  
+  The requirement explicitly asks for `priceLessThan` to apply before discounts.
+
+- **Limit to 5 results**:  
+  Enforced after filtering and applying discounts. The order is not relevant for the assignment.
+
+- **Discount logic centralized in ProductService**:  
+  Easy to test and extend. Could evolve into separate `DiscountPolicy` classes for flexibility (Strategy Pattern).
+
+- **Testing**:  
+  - Unit tests: ProductService with in-memory datasource.  
+  - Functional tests: `/products` endpoint.  
+  - Tests do not depend on filesystem or network.
+
+- **Complexity**:  
+  Algorithm is O(n), linear with the number of products. Handling 20k items is easy for PHP.  
+  For larger datasets, replace JSON with a database and apply filters in SQL.
