@@ -1,3 +1,5 @@
+![CI](https://github.com/reateguiDiego/mytheresa-promotions/actions/workflows/ci.yml/badge.svg)
+
 # Mytheresa Promotions API (Symfony 6.4)
 
 This is a coding challenge for Mytheresa backend position.  
@@ -67,6 +69,12 @@ Example response:
   ]
 }
 ```
+
+#### Example request with filters
+
+`GET /products?category=boots&priceLessThan=80000`
+
+This will return boots priced ≤ €800 (80 000 cents), with promotions applied.
 
 ## Project structure
 
