@@ -76,7 +76,8 @@ src/
   Application/     # Application services (ProductService)
   Infrastructure/  # Data sources (JsonFile, InMemory for tests)
   Controller/      # HTTP endpoints
-var/data/          # Product dataset
+data/              # Product dataset
+.github/workflows/ # CI pipeline definition (GitHub Actions)
 ```
 
 ## Design Decisions
@@ -107,3 +108,9 @@ var/data/          # Product dataset
 - **Complexity**:  
   Algorithm is O(n), linear with the number of products. Handling 20k items is easy for PHP.  
   For larger datasets, replace JSON with a database and apply filters in SQL.
+
+```
+⚠️ Note: The `APP_SECRET` value in `.env` is a placeholder used only for local/dev and testing purposes.  
+In production, this should be set via environment variables or Symfony secrets.  
+This value does not represent any real credential.
+```
