@@ -14,7 +14,13 @@ final class ProductController extends AbstractController
     public function list(Request $request, ProductService $service): Response
     {
         $category = $request->query->get('category');
-        $priceLessThan = $request->query->getInt('priceLessThan') ?: null;
+        $value = $request->query->get('priceLessThan');
+        
+        if ($value !== null && (!is_numeric($value) || (int)$value < 0)) {
+            return $this->json(['error' => 'Invalid priceLessThan'], Response::HTTP_BAD_REQUEST);
+        }
+        
+        $priceLessThan = $value !== null ? (int)$value : null;
 
         $payload = $service->listProducts(
             $category ?: null,
