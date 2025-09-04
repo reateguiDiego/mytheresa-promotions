@@ -21,7 +21,7 @@ services:
             - '../src/Kernel.php'
     App\Infrastructure\Data\JsonFileProductDataSource:
         arguments:
-            $jsonPath: '%kernel.project_dir%/var/data/products.json'
+            $jsonPath: '%kernel.project_dir%/data/products.json'
 
     App\Infrastructure\Data\ProductDataSourceInterface: '@App\Infrastructure\Data\JsonFileProductDataSource'
 
