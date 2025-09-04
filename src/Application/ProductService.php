@@ -54,7 +54,7 @@ final class ProductService
         $discountPercentage = null;
 
         if ($discount > 0) {
-            $final = (int) round($original * (100 - $discount) / 100);
+            $final = intdiv($original * (100 - $discount), 100);
             $discountPercentage = $discount . '%';
         }
 
