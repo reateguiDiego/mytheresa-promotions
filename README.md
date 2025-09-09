@@ -14,7 +14,7 @@ It provides a REST API endpoint to list products with promotions/discounts appli
 ## Installation
 
 ```bash
-git clone https://github.com/<YOUR-USER>/mytheresa-promotions.git
+git clone https://github.com/reaeguiDiego/mytheresa-promotions.git
 cd mytheresa-promotions
 composer install
 ```
